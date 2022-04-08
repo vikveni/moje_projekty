@@ -71,7 +71,6 @@ for slova in txt:
         pocet_slov_s_velkym.append(slova)
 print(f"There are {len(pocet_slov_s_velkym)} titlacse words.")
 
-
 # Slova velkými písmeny
 pocet_velkych_slov = []
 for slova in txt:
