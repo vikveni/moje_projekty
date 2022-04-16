@@ -1,4 +1,11 @@
 from pprint import pprint
+"""
+projekt_1.py: Prvni projekt do Engeto Online Python Akademie
+
+author: Viktor Veniger
+email: viktorveniger@gmail.com
+discord: VikVeni#8755
+"""
 TEXTS = [
 '''Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
