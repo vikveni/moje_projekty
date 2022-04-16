@@ -35,8 +35,8 @@ users = {
     'liz': 'pass123'
 }
 # Vstupy
-user_inp = str(input("User: "))
-pass_inp = str(input("Password: "))
+user_inp = input("User: ")
+pass_inp = input("Password: ")
 
 # Ověření uživatele
 if users.get(user_inp) == pass_inp:
@@ -59,44 +59,35 @@ txt = TEXTS[int(choose_txt) - 1].split()
 
 # Všechna slova
 pocet_slov = []
-for slova in txt:
-    ciste_slova = slova.replace(".,", "")
-    pocet_slov.append(ciste_slova)
-print(f"There are {len(pocet_slov)} words in the selected text.")
-
-# S počátečním velkým písmenem
 pocet_slov_s_velkym = []
+pocet_velkych_slov = []
+pocet_malych_slov = []
+cisla = []
+soucet_cisel = 0
 for slova in txt:
+    ciste_slova = slova.strip(".,:!\"\'")
+    pocet_slov.append(ciste_slova)
+    # S počátečním velkým
     if slova.istitle():
         pocet_slov_s_velkym.append(slova)
-print(f"There are {len(pocet_slov_s_velkym)} titlacse words.")
-
-# Slova velkými písmeny
-pocet_velkych_slov = []
-for slova in txt:
+    # Slova velkými písmeny
     if slova.isupper():
         pocet_velkych_slov.append(slova)
-print(f"There are {len(pocet_velkych_slov)} uppercase words.")
-# Slova s malym
-pocet_malych_slov = []
-for slova in txt:
+    # Slova s malym
     if slova.islower():
         pocet_malych_slov.append(slova)
+    #  Cisla
+    if slova.isnumeric():
+        cisla.append(slova)
+    # Sooucet cisel
+    if slova.isnumeric():
+        soucet_cisel += int(slova)
+print(f"There are {len(pocet_slov)} words in the selected text.")
+print(f"There are {len(pocet_slov_s_velkym)} titlacse words.")
+print(f"There are {len(pocet_velkych_slov)} uppercase words.")
 print(f"There are {len(pocet_malych_slov)} lowercase words.")
-# Ciselne stringy
-cisla = []
-for slovo in txt:
-    if slovo.isnumeric():
-        cisla.append(slovo)
 print(f"There are {len(cisla)} numeric strings")
-# Sooucet cisel
-soucet_cisel = 0
-for slovo in txt:
-    if slovo.isnumeric():
-        soucet_cisel += int(slovo)
-
 print(f"The sum of all numbers {soucet_cisel}")
-
 
 #
 pocet_pismen = []
