@@ -30,9 +30,6 @@ def random_secret_number():
         secret_number.clear()
         random_secret_number()
 
-def wrong_choice(choice):
-    if choice.isalpha() or choice[0] == 0 or choice[::] == choice[::]:
-        print("Wrong input!")
 
 def bulls_cows():
     global choice
