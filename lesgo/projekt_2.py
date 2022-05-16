@@ -27,7 +27,7 @@ def random_secret_number():
         secret_number.append(number)
     if len(secret_number) > len(set(secret_number)) or secret_number[0] == 0:
         secret_number.clear()
-        random_secret_number()
+
 
 def bulls_cows():
     bulls = 0
