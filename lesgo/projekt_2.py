@@ -57,7 +57,6 @@ def bulls_cows():
             else:
                 quit()
         print(f"{bulls} bulls, {cows} cows")
-        print(secret_number)
         print(separator)
 
 
