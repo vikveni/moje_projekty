@@ -10,8 +10,7 @@ import random
 secret_number = []
 separator = "-" * 47
 
-
-def introduction():
+def intro():
     print("Hi there!",
           separator,
           "I've generated a random 4 digit number for you. ",
@@ -20,27 +19,18 @@ def introduction():
           sep="\n"
           )
 
-
 def random_secret_number():
-    for i in range(4):
-        number = random.randrange(0, 9)
-        secret_number.append(number)
-    if len(secret_number) > len(set(secret_number)) or secret_number[0] == 0:
-        secret_number.clear()
-
+    while len(secret_number) != 4:
+        secret_number.append(random.randrange(0, 9))
+        if len(secret_number) > len(set(secret_number)) or secret_number[0] == 0:
+            secret_number.clear()
+    return secret_number
 
 def bulls_cows():
     bulls = 0
     cows = 0
     guess = []
     choice = input("Enter a number: ")
-    if not choice.isnumeric() or choice[0] == 0 or len(choice) != 4:
-        print("Wrong input! It can not be letters, starts with 0, duplicity numbers or longer than 4.")
-        play_again = input("Do you want to play again? y/n: ")
-        if play_again == "y":
-            bulls_cows()
-        else:
-            quit()
     for i in range(4):
         guess.append(int(choice[i]))
         for x in range(4):
@@ -57,7 +47,6 @@ def bulls_cows():
     bulls_cows()
 
 def game_player():
-    introduction()
     random_secret_number()
     bulls_cows()
 
