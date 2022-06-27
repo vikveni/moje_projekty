@@ -30,11 +30,13 @@ def bulls_cows():
     while True:
         bulls = 0
         cows = 0
+        attempts = 0
         guess = []
         choice = input("Enter a number: ")
         if not choice.isnumeric() or choice[0] == 0 or len(choice) != 4:
             print("*Wrong input* Try again!",
                   separator, sep="\n")
+            attempts += 1
             continue
         for i in range(4):
             guess.append(int(choice[i]))
@@ -45,8 +47,9 @@ def bulls_cows():
                 bulls += 1
                 cows -= 1
         if bulls == 4:
-            print(f"Congratualtions you are the winner, the number was {secret_number}")
-            play_again = input("Do you wanbt to play again?"
+            print(f"Congratualtions you are the winner, the number was {secret_number}."
+                  f"Number of attempts: {attempts}")
+            play_again = input("Do you want to play again?"
                                "y/n")
             if play_again == "y":
                 bulls_cows()
