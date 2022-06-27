@@ -27,10 +27,10 @@ def random_secret_number():
     return secret_number
 
 def bulls_cows():
+    attempts = 0
     while True:
         bulls = 0
         cows = 0
-        attempts = 0
         guess = []
         choice = input("Enter a number: ")
         if not choice.isnumeric() or choice[0] == 0 or len(choice) != 4:
@@ -38,6 +38,8 @@ def bulls_cows():
                   separator, sep="\n")
             attempts += 1
             continue
+        attempts += 1
+        print(attempts)
         for i in range(4):
             guess.append(int(choice[i]))
             for x in range(4):
@@ -49,13 +51,13 @@ def bulls_cows():
         if bulls == 4:
             print(f"Congratualtions you are the winner, the number was {secret_number}."
                   f"Number of attempts: {attempts}")
-            play_again = input("Do you want to play again?"
-                               "y/n")
+            play_again = input("Do you want to play again? y/n:")
             if play_again == "y":
-                bulls_cows()
+                game_player()
             else:
                 quit()
         print(f"{bulls} bulls, {cows} cows")
+        print(secret_number)
         print(separator)
 
 
